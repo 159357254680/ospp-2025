@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>demo</title>
+  <style>
+    body {
+      padding: 20px;
+    }
+    #chart-container {
+      width: 100%;
+      height: 600px;
+    }
+  </style>
+</head>
+<body>
+  <div id="chart-container"></div>
+
+
+  <script type="module">
+    import HorizontalChart from './HorizontalChart/index.js';
+
+    const demo = document.getElementById('chart-container');
+    const chart = new HorizontalChart();
+    chart.init(demo);
+
+    const arr = Array.from({length: 100}, () => ({name: '李华', amount: 6000, percent: 98, content: '测试'}))
+
+    const data = [
+      { name: '小明', amount: 7000, percent: 70, color: 'yellow', content: 'asdfghjkl'},
+      { name: 'aaaaaaaaaaaaaaaaaaaaaaaaaaa', amount: 11000, percent: 100, color: 'red', content: 'asdfghjkldsaffdafasdddsa'},
+      ...arr,
+    ];
+
+    chart.setSimpleOptions({
+      data: data,
+    });
+
+    chart.render()
+  </script>
+</body>
+</html>
